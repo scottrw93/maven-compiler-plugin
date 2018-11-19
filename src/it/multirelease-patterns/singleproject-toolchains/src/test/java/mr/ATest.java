@@ -49,4 +49,14 @@ public class ATest {
         assertThat( new A().introducedClass().getName(),  is( "java.lang.Module" ) );
     }
 
+    @Test
+    public void testGet10() throws Exception
+    {
+        assumeThat( javaVersion, is( "10" ) );
+
+        assertThat( A.getString(),  is( "BASE -> 10" ) );
+
+        assertThat( new A().introducedClass().getName(),  is( "java.lang.Module" ) );
+    }
+
 } 
