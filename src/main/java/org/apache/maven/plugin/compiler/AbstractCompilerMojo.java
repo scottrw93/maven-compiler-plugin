@@ -305,6 +305,18 @@ public abstract class AbstractCompilerMojo
 
     /**
      * <p>
+     * Modifies how dependencies for annotation processor classpath elements are resolved.  If true,
+     * The dependency management section of the active maven project will be used.  Otherwise the
+     * default dependency resolution will occur for the specified classpath elements
+     * </p>
+     *
+     * @since 3.8
+     */
+    @Parameter
+    private boolean annotationProcessorsUseManagedDependencies;
+
+    /**
+     * <p>
      * Sets the arguments to be passed to the compiler (prepending a dash) if {@link #fork} is set to <code>true</code>.
      * </p>
      * <p>
@@ -1665,6 +1677,11 @@ public abstract class AbstractCompilerMojo
                             .setArtifactDependencies( requiredArtifacts )
                             .setLocalRepository( session.getLocalRepository() )
                             .setRemoteRepositories( project.getRemoteArtifactRepositories() );
+
+            if ( annotationProcessorsUseManagedDependencies )
+            {
+                request.setManagedVersionMap( project.getManagedVersionMap() );
+            }
 
             ArtifactResolutionResult resolutionResult = repositorySystem.resolve( request );
 
