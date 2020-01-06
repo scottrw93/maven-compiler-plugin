@@ -202,6 +202,7 @@ under the License.
           <configuration>
             <excludes combine.children="append">
               <exclude>.java-version</exclude>
+              <exclude>.blazar-enabled</exclude>
             </excludes>
           </configuration>
         </plugin>
