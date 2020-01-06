@@ -1,5 +1,5 @@
 env:
-  SET_VERSION_OVERRIDE: "3.8.2-$GIT_BRANCH-SNAPSHOT"
+  SKIP_VERSION_OVERRIDE: true
 
 buildpack:
   host: git.hubteam.com
