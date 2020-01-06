@@ -203,6 +203,7 @@ under the License.
             <excludes combine.children="append">
               <exclude>.java-version</exclude>
               <exclude>.blazar.yaml</exclude>
+              <exclude>.hubspot-blazar-discovery.yaml</exclude>
             </excludes>
           </configuration>
         </plugin>
